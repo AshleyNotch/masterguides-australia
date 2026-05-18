@@ -1,113 +1,230 @@
-import { ArrowRight, Banknote, Handshake, Lightbulb, FileText, ClipboardCheck, BadgeCheck, Sparkles } from "lucide-react";
+import { ArrowRight, Banknote, Handshake, Lightbulb, Files, FileUser, FileHeart, Network, FileSearch, Contact } from "lucide-react";
 import heroCouple from "@/assets/hero-couple.jpg";
 import heroTeam from "@/assets/hero-team.jpg";
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden">
-      <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 py-16 lg:grid-cols-[1.05fr_1fr] lg:px-10 lg:py-24">
-        {/* Copy */}
-        <div>
-          <h1 className="font-serif text-5xl leading-[1.05] text-navy sm:text-6xl lg:text-7xl">
-            Australian immigration lawyers <span className="italic">&</span> migration agents
+    <section className="bg-white overflow-hidden">
+      <div
+        className="mx-auto flex items-center"
+        style={{ maxWidth: "1280px", padding: "80px 0", gap: "0px" }}
+      >
+
+        {/* ── Left column: 768px ── */}
+        <div
+          className="flex flex-col"
+          style={{ width: "768px", minWidth: "768px", gap: "24px" }}
+        >
+          {/* H1 */}
+          <h1
+            className="font-serif font-bold"
+            style={{
+              fontSize: "68.8px",
+              lineHeight: "80px",
+              letterSpacing: "-1.6px",
+              color: "#1C1E4B",
+            }}
+          >
+            Your Trusted Australian Visa Experts
           </h1>
-          <p className="mt-6 max-w-xl text-lg text-foreground/75">
-            Let our team guide you through your visa application so you can focus on what
-            really matters — your future life in Australia.
+
+          {/* Subheadline */}
+          <p
+            style={{
+              fontSize: "23.8px",
+              lineHeight: "36px",
+              letterSpacing: "-0.16px",
+              color: "#424242",
+              fontWeight: 400,
+            }}
+          >
+            Let our MARA-registered migration team handle the complexity so you
+            can focus on building your future life in Australia.
           </p>
 
-          <ul className="mt-8 flex flex-wrap items-start gap-x-8 gap-y-4 text-sm font-medium text-foreground/85">
-            <li className="flex items-center gap-2">
-              <span className="grid h-9 w-9 place-items-center rounded-full bg-mint/60">
-                <Banknote className="h-4 w-4 text-primary" />
-              </span>
-              No visa,<br />no fee
-            </li>
-            <li className="flex items-center gap-2">
-              <span className="grid h-9 w-9 place-items-center rounded-full bg-mint/60">
-                <Handshake className="h-4 w-4 text-primary" />
-              </span>
-              Registered<br />migration agents
-            </li>
-            <li className="flex items-center gap-2">
-              <span className="grid h-9 w-9 place-items-center rounded-full bg-mint/60">
-                <Lightbulb className="h-4 w-4 text-primary" />
-              </span>
-              Experienced<br />immigration lawyers
-            </li>
+          {/* Trust badges */}
+          <ul
+            className="flex flex-wrap items-center"
+            style={{ gap: "0px 36.5px", paddingTop: "8px" }}
+          >
+            {[
+              { Icon: Banknote,  text: "No visa,\nno fee" },
+              { Icon: Handshake, text: "MARA Registered\nMigration Agents" },
+              { Icon: Lightbulb, text: "Expert visa &\nmigration guidance" },
+            ].map(({ Icon, text }) => (
+              <li key={text} className="flex items-center" style={{ paddingBottom: "8px" }}>
+                <span
+                  className="flex items-center justify-center shrink-0"
+                  style={{ width: "48px", height: "48px", paddingRight: "16px" }}
+                >
+                  <Icon style={{ width: "32px", height: "32px", color: "#141414" }} />
+                </span>
+                <span
+                  className="whitespace-pre-line"
+                  style={{
+                    fontFamily: "Inter, sans-serif",
+                    fontWeight: 500,
+                    fontSize: "18px",
+                    lineHeight: "18px",
+                    letterSpacing: "-0.16px",
+                    color: "#424242",
+                  }}
+                >
+                  {text}
+                </span>
+              </li>
+            ))}
           </ul>
 
-          <a
-            href="#get-started"
-            className="mt-10 inline-flex items-center gap-2 rounded-md bg-gold px-6 py-4 text-base font-semibold text-gold-foreground shadow-[0_8px_0_-2px_rgba(0,0,0,0.08)] transition-transform hover:translate-y-0.5"
-          >
-            Check your eligibility
-            <ArrowRight className="h-5 w-5" />
-          </a>
+          {/* CTA */}
+          <div style={{ paddingTop: "8px" }}>
+            <a
+              href="#get-started"
+              className="inline-flex items-center gap-2 transition-opacity hover:opacity-90"
+              style={{
+                background: "#F4C845",
+                border: "1px solid #F4C845",
+                borderRadius: "4px",
+                padding: "16px 28px",
+                fontFamily: "Inter, sans-serif",
+                fontWeight: 600,
+                fontSize: "16px",
+                letterSpacing: "-0.16px",
+                color: "#141414",
+                textDecoration: "none",
+              }}
+            >
+              Check Your Eligibility Free
+              <ArrowRight style={{ width: "24px", height: "24px" }} />
+            </a>
+          </div>
         </div>
 
-        {/* Collage */}
-        <div className="relative mx-auto h-[520px] w-full max-w-xl lg:h-[560px]">
-          {/* Application overview card */}
-          <div className="absolute left-0 top-4 w-[300px] rotate-[-6deg] rounded-md bg-card p-5 shadow-xl ring-1 ring-black/5">
-            <div className="flex items-center gap-2 border-b border-border pb-3">
-              <FileText className="h-5 w-5 text-navy" />
-              <span className="font-serif text-xl text-navy">Application overview</span>
-            </div>
-            <ul className="mt-3 space-y-2.5 text-sm text-foreground/80">
+        {/* ── Right column: collage 512×469px ── */}
+        <div
+          className="relative shrink-0"
+          style={{ width: "512px", height: "469px" }}
+        >
+
+          {/* 1. App overview card — back, -11deg */}
+          <div
+            className="absolute"
+            style={{
+              width: "263px",
+              top: "-22px",
+              left: "-26px",
+              transform: "rotate(-11deg)",
+              background: "#FFFFFF",
+              boxShadow: "0px 3px 10px rgba(0,0,0,0.08)",
+              padding: "20px",
+              zIndex: 10,
+            }}
+          >
+            <Files style={{ width: "40px", height: "40px", color: "#1C1E4B", marginBottom: "12px" }} />
+            <p
+              className="font-serif italic font-bold"
+              style={{ fontSize: "20px", color: "#1C1E4B", marginBottom: "16px" }}
+            >
+              Application overview
+            </p>
+            <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
               {[
-                ["📋", "Character history"],
-                ["💞", "Nature of commitment"],
-                ["🌐", "Social aspects"],
-                ["🔎", "General"],
-                ["🪪", "Identity"],
-              ].map(([icon, label]) => (
-                <li key={label} className="flex items-center gap-3 border-b border-border/60 pb-2 last:border-0">
-                  <span>{icon}</span>
-                  <span>{label}</span>
+                [FileUser,   "Character history"],
+                [FileHeart,  "Nature of commitment"],
+                [Network,    "Social aspects"],
+                [FileSearch, "General"],
+                [Contact,    "Identity"],
+              ].map(([Icon, label], i, arr) => (
+                <li
+                  key={label as string}
+                  className="flex items-center gap-3"
+                  style={{
+                    borderBottom: i < arr.length - 1 ? "1px solid rgba(0,0,0,0.08)" : "none",
+                    paddingBottom: "10px",
+                    marginBottom: i < arr.length - 1 ? "10px" : 0,
+                    fontSize: "13px",
+                    color: "#424242",
+                  }}
+                >
+                  <Icon style={{ width: "18px", height: "18px", color: "#1C1E4B", opacity: 0.7, flexShrink: 0 }} />
+                  <span>{label as string}</span>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Polaroid couple */}
-          <div className="absolute right-0 top-0 w-[230px] rotate-[6deg] bg-card p-3 shadow-xl ring-1 ring-black/5">
+          {/* 2. Couple polaroid — z20, top-right */}
+          <div
+            className="absolute"
+            style={{
+              width: "233px",
+              top: "20px",
+              left: "271px",
+              background: "#FFFFFF",
+              border: "1px solid #D6D6D6",
+              padding: "8px 8px 20px",
+              boxShadow: "0px 3px 3px rgba(0,0,0,0.05)",
+              zIndex: 20,
+            }}
+          >
             <img
               src={heroCouple}
-              alt="Couple walking on an Australian beach"
-              width={800}
-              height={800}
-              className="aspect-square w-full object-cover"
+              alt="Couple on Australian beach"
+              style={{ width: "100%", aspectRatio: "1/1", objectFit: "cover", display: "block" }}
             />
           </div>
 
-          {/* Team polaroid */}
-          <div className="absolute bottom-6 right-4 w-[320px] rotate-[-3deg] bg-card p-3 shadow-2xl ring-1 ring-black/5">
+          {/* 3. Sticky note — z20, behind team photo */}
+          <div
+            className="absolute"
+            style={{
+              left: "54px",
+              right: "257px",
+              top: "316px",
+              background: "#C7E1D3",
+              transform: "rotate(-4deg)",
+              padding: "14px",
+              zIndex: 20,
+            }}
+          >
+            <Handshake
+              style={{ width: "54px", height: "54px", color: "#141414", opacity: 0.7, marginBottom: "10px" }}
+            />
+            <p
+              className="font-serif font-bold"
+              style={{
+                fontSize: "17.2px",
+                lineHeight: "20px",
+                letterSpacing: "-0.036em",
+                color: "#424242",
+              }}
+            >
+              Your agent is ready to<br />proceed
+            </p>
+          </div>
+
+          {/* 4. Team photo — z30, on top of sticky note */}
+          <div
+            className="absolute"
+            style={{
+              width: "249px",
+              top: "266px",
+              left: "260px",
+              background: "#FFFFFF",
+              padding: "5px 5px 26px",
+              boxShadow: "0px 3px 3px rgba(0,0,0,0.05)",
+              transform: "rotate(2deg)",
+              zIndex: 30,
+            }}
+          >
             <img
               src={heroTeam}
               alt="Our team helping clients"
-              width={900}
-              height={700}
-              className="aspect-[4/3] w-full object-cover"
+              style={{ width: "100%", aspectRatio: "4/3", objectFit: "cover", display: "block" }}
               loading="lazy"
             />
           </div>
 
-          {/* Sticky note */}
-          <div className="absolute bottom-0 left-6 w-[240px] rotate-[-4deg] bg-mint p-4 shadow-lg">
-            <Sparkles className="h-5 w-5 text-primary" />
-            <p className="mt-2 font-serif text-lg leading-snug text-navy">
-              Your agent is ready to proceed
-            </p>
-          </div>
-
-          {/* Tiny badge */}
-          <div className="absolute left-[42%] top-[44%] hidden h-14 w-14 rotate-[8deg] place-items-center rounded-full bg-gold text-navy shadow-lg sm:grid">
-            <BadgeCheck className="h-7 w-7" />
-          </div>
-
-          {/* tiny floating clipboard accent */}
-          <ClipboardCheck className="absolute -left-2 top-[44%] h-6 w-6 text-primary/40" />
         </div>
       </div>
     </section>
