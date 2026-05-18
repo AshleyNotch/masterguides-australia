@@ -4,10 +4,34 @@
 
 @custom-variant dark (&:is(.dark *));
 
-@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+@font-face {
+  font-family: "Domaine Display";
+  src: url("@/assets/fonts/fonnts.com-Domaine_Display_Bold_Regular.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Domaine Display";
+  src: url("@/assets/fonts/fonnts.com-Domaine_Display_Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Domaine Sans Fine";
+  src: url("@/assets/fonts/fonnts.com-Domaine_Sans_Fine_Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
 
 @theme inline {
-  --font-serif: "DM Serif Display", ui-serif, Georgia, serif;
+  --font-serif: "Domaine Display", ui-serif, Georgia, serif;
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
 
   --radius-sm: calc(var(--radius) - 4px);

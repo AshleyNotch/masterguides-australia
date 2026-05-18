@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
-import { Scale, ChevronDown, ArrowRight, Menu, X } from "lucide-react";
+import { ChevronDown, ArrowRight, Menu, X } from "lucide-react";
+import logo from "@/assets/logo.svg";
 import { useState } from "react";
 
 const navItems = [
@@ -13,68 +14,62 @@ export function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-black/10 bg-[#FFFBF5]">
+    <header className="sticky top-0 z-40 bg-[#FFFBF5]" style={{ borderBottom: "1px solid #00417C" }}>
       <div
         className="mx-auto flex max-w-[1440px] items-center justify-between"
         style={{ padding: "14.5px 72px", height: "74px" }}
       >
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2.5">
-          <span
-            className="grid place-items-center rounded-full border-2 shrink-0"
-            style={{ width: "31px", height: "31px", borderColor: "#00417C" }}
-          >
-            <Scale className="h-4 w-4" style={{ color: "#00417C" }} />
-          </span>
-          <span
-            className="font-serif font-bold"
-            style={{ fontSize: "20px", lineHeight: "24px", letterSpacing: "-0.16px", color: "#00417C" }}
-          >
-            Masterguides Australia
-          </span>
+        <Link to="/">
+          <img src={logo} alt="Masterguides Australia" style={{ height: "31px", width: "auto" }} />
         </Link>
 
-        {/* Desktop nav */}
-        <nav className="hidden items-center lg:flex" style={{ gap: "8px" }}>
-          {navItems.map((item) => (
-            <button
-              key={item.label}
-              className="inline-flex items-center gap-2 rounded-lg px-4 py-2 font-medium transition-colors hover:bg-black/5"
-              style={{ fontSize: "16px", letterSpacing: "-0.16px", color: "#141414" }}
+        {/* Right side: nav + CTA grouped together */}
+        <div className="hidden items-center lg:flex" style={{ gap: "8px" }}>
+          <nav className="flex items-center" style={{ gap: "8px" }}>
+            {navItems.map((item) => (
+              <button
+                key={item.label}
+                className="inline-flex items-center gap-1.5 rounded-lg px-4 py-2 transition-colors hover:bg-black/5"
+                style={{ fontSize: "16px", fontWeight: 500, letterSpacing: "-0.16px", color: "#141414", fontFamily: "Inter, sans-serif" }}
+              >
+                {item.label}
+                {item.hasMenu && <ChevronDown className="h-4 w-4 opacity-60" />}
+              </button>
+            ))}
+          </nav>
+
+          {/* Divider margin */}
+          <div style={{ paddingLeft: "16px" }}>
+            <a
+              href="#get-started"
+              className="inline-flex items-center gap-2 transition-colors hover:bg-[#00417C] hover:text-white"
+              style={{
+                border: "1px solid #00417C",
+                borderRadius: "4px",
+                padding: "8px 20px",
+                height: "42px",
+                fontSize: "14px",
+                fontWeight: 600,
+                letterSpacing: "-0.16px",
+                color: "#00417C",
+                fontFamily: "Inter, sans-serif",
+              }}
             >
-              {item.label}
-              {item.hasMenu && <ChevronDown className="h-4 w-4 opacity-60" />}
-            </button>
-          ))}
-        </nav>
-
-        {/* CTA + mobile toggle */}
-        <div className="flex items-center gap-4">
-          <a
-            href="#get-started"
-            className="hidden items-center gap-2 font-semibold transition-colors hover:bg-[#00417C] hover:text-white sm:inline-flex"
-            style={{
-              border: "1px solid #00417C",
-              borderRadius: "4px",
-              padding: "8px 20px",
-              height: "42px",
-              fontSize: "14px",
-              letterSpacing: "-0.16px",
-              color: "#00417C",
-            }}
-          >
-            Book a Free Call
-            <ArrowRight className="h-4 w-4" />
-          </a>
-
-          <button
-            onClick={() => setOpen(!open)}
-            className="grid h-10 w-10 place-items-center rounded-full border border-black/20 lg:hidden"
-            aria-label="Menu"
-          >
-            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
+              Book a Free Call
+              <ArrowRight className="h-4 w-4" />
+            </a>
+          </div>
         </div>
+
+        {/* Mobile toggle */}
+        <button
+          onClick={() => setOpen(!open)}
+          className="grid h-10 w-10 place-items-center rounded-full border border-black/20 lg:hidden"
+          aria-label="Menu"
+        >
+          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+        </button>
       </div>
 
       {/* Mobile menu */}
